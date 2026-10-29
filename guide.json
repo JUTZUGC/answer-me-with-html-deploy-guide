@@ -1,0 +1,108 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "answermehtml",
+    "nameCn": "Answer me with HTML",
+    "repoName": "answer-me-with-html-deploy-guide",
+    "oneLiner": "把 Agent 的复杂回答变成一张可读、可离线保存的 HTML 页面的 Agent 技能",
+    "officialRepo": "https://github.com/QingYunA/answer-me-with-html",
+    "officialDocs": "https://github.com/QingYunA/answer-me-with-html/blob/main/INSTALL.md",
+    "stars": "4.6k",
+    "license": "MIT",
+    "highlights": [
+      "省 token：模型只写内容草稿，版式与图表由 CLI 生成",
+      "单文件：输出一个 HTML，离线也能打开和转发",
+      "图表自动：流程图、对比图由 CLI 画，不靠模型拼坐标",
+      "多客户端：Claude Code、Codex、Cursor、OpenCode、Pi、DeepSeek Harness",
+      "安装轻：没有 npm install，Node 20+ 即可",
+      "讲解页：还支持把回答转成讲解页或短视频"
+    ],
+    "mcpSupport": "项目本身是 Agent 技能，不含 MCP；本仓库的 MCP 只提供安装步骤、客户端差异与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-29",
+    "verification": [
+      [
+        "README 与 INSTALL.md 确认 Node 20+、npx skills 安装方式",
+        "已核对 2026-10-29"
+      ],
+      [
+        "仓库 License 为 MIT",
+        "已核对 2026-10-29"
+      ],
+      [
+        "未实测安装与生成（会写入 Agent 技能目录）",
+        "说明 2026-10-29"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-10-29"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-10-29"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "node"
+      ],
+      "steps": [
+        "node -e \"const a=+process.versions.node.split('.')[0]; if(a<20){console.error('需要 Node.js 20+，当前 '+process.versions.node);process.exit(1)}\"",
+        "npx -y skills add QingYunA/answer-me-with-html -g -y",
+        "echo \"安装完成：在 Agent 里问一个复杂问题试试\""
+      ],
+      "stepsPs": [
+        "node -e \"const a=+process.versions.node.split('.')[0]; if(a<20){console.error('需要 Node.js 20+，当前 '+process.versions.node);process.exit(1)}\"",
+        "npx -y skills add QingYunA/answer-me-with-html -g -y",
+        "Write-Host '安装完成：在 Agent 里问一个复杂问题试试'"
+      ],
+      "source": "https://github.com/QingYunA/answer-me-with-html/blob/main/INSTALL.md"
+    },
+    "pitfalls": [
+      "Node 版本不够：升级到 20+ 再执行 npx skills",
+      "装完 Agent 不调用：确认客户端支持 skills，并重启会话",
+      "找不到生成文件：看 Agent 输出里的路径，通常在技能输出目录",
+      "npx 卡住：换 npm 镜像或先 npm i -g skills 再 skills add",
+      "页面图表错位：换更擅长长文本的模型重试",
+      "想卸载：删除对应客户端的 skills/answer-me-with-html 目录"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/answer-me-with-html-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/answer-me-with-html-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "Answer me with HTML",
+    "answer-me-with-html 部署",
+    "Agent HTML 回答",
+    "Claude Code 技能",
+    "Codex 技能",
+    "复杂问题 HTML",
+    "AI 讲解页",
+    "技能安装 教程",
+    "answer me with html deploy guide"
+  ],
+  "topics": [
+    "ai-agents",
+    "agent-skills",
+    "html",
+    "claude-code",
+    "codex",
+    "documentation"
+  ]
+}

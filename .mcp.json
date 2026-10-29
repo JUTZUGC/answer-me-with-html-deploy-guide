@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "answermehtml-guide": {
+      "command": "node",
+      "args": [
+        "mcp-server.mjs"
+      ]
+    }
+  }
+}
