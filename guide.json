@@ -103,6 +103,7 @@
     "html",
     "claude-code",
     "codex",
-    "documentation"
+    "documentation",
+    "answer-me-with-html"
   ]
 }
